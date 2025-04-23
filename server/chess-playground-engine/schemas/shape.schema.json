@@ -1,0 +1,89 @@
+{
+    "title": "ShapeNode",
+    "oneOf": [
+      {
+        "type": "object",
+        "properties": {
+          "kind": { "const": "circle" },
+          "radius": { "type": "integer", "minimum": 0 }
+        },
+        "required": ["kind","radius"],
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "properties": {
+          "kind": { "const": "square" },
+          "size": { "type": "integer", "minimum": 0 }
+        },
+        "required": ["kind","size"],
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "properties": {
+          "kind": { "const": "ray" },
+          "dirs": {
+            "type": "array",
+            "items": { "type": "string", "enum": ["N","NE","E","SE","S","SW","W","NW"] },
+            "minItems": 1
+          },
+          "min": { "type": "integer", "minimum": 1 },
+          "max": { "type": "integer", "minimum": 1 }
+        },
+        "required": ["kind","dirs","min","max"],
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "properties": {
+          "kind": { "const": "point" },
+          "delta": {
+            "type": "array",
+            "items": { "type": "integer" },
+            "minItems": 2,
+            "maxItems": 2
+          }
+        },
+        "required": ["kind","delta"],
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "properties": {
+          "kind": { "const": "union" },
+          "shapes": { "type": "array", "items": { "$ref": "#/" }, "minItems": 1 }
+        },
+        "required": ["kind","shapes"],
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "properties": {
+          "kind": { "const": "intersect" },
+          "shapes": { "type": "array", "items": { "$ref": "#/" }, "minItems": 1 }
+        },
+        "required": ["kind","shapes"],
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "properties": {
+          "kind": { "const": "subtract" },
+          "shapes": { "type": "array", "items": { "$ref": "#/" }, "minItems": 2 }
+        },
+        "required": ["kind","shapes"],
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "properties": {
+          "kind": { "const": "reflect" },
+          "axis": { "type": "string", "enum": ["horizontal","vertical","both"] },
+          "shapes": { "type": "array", "items": { "$ref": "#/" }, "minItems": 1 }
+        },
+        "required": ["kind","axis"],
+        "additionalProperties": false
+      }
+    ]
+  }

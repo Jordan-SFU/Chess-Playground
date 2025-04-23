@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "ES2016", // Or a later version like ES2020, ESNext
+    "module": "CommonJS", // Or ESNext, NodeNext, etc.
+    "lib": ["ES2016", "DOM"], // Add "ES2015" or later for Map, "DOM" might be needed too
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "**/*.spec.ts"]
+}
