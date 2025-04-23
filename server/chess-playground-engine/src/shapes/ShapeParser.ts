@@ -4,6 +4,7 @@ import { circle }      from "./primitives/Circle";
 import { square }      from "./primitives/Square";
 import { ray }         from "./primitives/Ray";
 import { point }       from "./primitives/Point";
+import { cone }        from "./primitives/Cone";
 import { union }       from "./combinators/Union";
 import { intersect }   from "./combinators/Intersect";
 import { subtract }    from "./combinators/Subtract";
@@ -16,11 +17,12 @@ export interface CircleNode    { kind: "circle"; radius: number }
 export interface SquareNode    { kind: "square"; size: number }
 export interface RayNode       { kind: "ray"; dirs: Direction[]; min: number; max: number }
 export interface PointNode     { kind: "point"; delta: Position }
+export interface ConeNode      { kind: "cone"; dir: Direction; length: number }
 export interface UnionNode     { kind: "union"; shapes: ShapeNode[] }
 export interface IntersectNode { kind: "intersect"; shapes: ShapeNode[] }
 export interface SubtractNode  { kind: "subtract"; shapes: [ShapeNode, ...ShapeNode[]] }
 export interface ReflectNode   { kind: "reflect"; axis: "horizontal"|"vertical"|"both"; shapes: ShapeNode[] }
-export type ShapeNode = CircleNode | SquareNode | RayNode | PointNode | UnionNode | IntersectNode | SubtractNode | ReflectNode;
+export type ShapeNode = CircleNode | SquareNode | RayNode | PointNode | ConeNode | UnionNode | IntersectNode | SubtractNode | ReflectNode;
 
 /**
  * Parse any ShapeNode into a flat list of relative offsets
@@ -35,6 +37,8 @@ export function parseShape(node: ShapeNode): Position[] {
       return ray(node.dirs, node.min, node.max);
     case "point":
       return [point(node.delta)];
+    case "cone":
+      return cone(node.dir, node.length);
     case "union":
       return union(...node.shapes.map(parseShape));
     case "intersect":

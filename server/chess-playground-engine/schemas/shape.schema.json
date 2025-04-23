@@ -51,6 +51,16 @@
       {
         "type": "object",
         "properties": {
+          "kind": { "const": "cone" },
+          "dir": { "type": "string", "enum": ["N","NE","E","SE","S","SW","W","NW"] },
+          "length": { "type": "integer", "minimum": 1 }
+        },
+        "required": ["kind","dir","length"],
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "properties": {
           "kind": { "const": "union" },
           "shapes": { "type": "array", "items": { "$ref": "#/" }, "minItems": 1 }
         },
