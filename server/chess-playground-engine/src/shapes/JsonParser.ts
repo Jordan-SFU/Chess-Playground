@@ -4,6 +4,7 @@ import {
     SquareNode,
     RayNode,
     PointNode,
+    ConeNode, // Added ConeNode import
     UnionNode,
     IntersectNode,
     SubtractNode,
@@ -71,6 +72,18 @@ import {
         return node;
       }
   
+      case 'cone': { // Added cone case
+        const { dir, length } = raw;
+        if (typeof dir !== 'string' || !ALL_DIRS.includes(dir as Direction)) {
+          throw new Error(`cone.dir must be one of ${ALL_DIRS.join(',')}`);
+        }
+        if (typeof length !== 'number' || length < 1) {
+          throw new Error(`cone.length must be a number >= 1`);
+        }
+        const node: ConeNode = { kind, dir: dir as Direction, length };
+        return node;
+      }
+  
       case 'union':
       case 'intersect': {
         const { shapes } = raw;
@@ -111,4 +124,3 @@ import {
         throw new Error(`Unknown shape kind "${kind}"`);
     }
   }
-  
