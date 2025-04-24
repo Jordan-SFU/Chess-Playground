@@ -1,0 +1,7 @@
+{
+    "name": "Pawn",
+    "emoji": "♙",
+    "movement": "{\"kind\": \"point\", \"delta\": {\"x\": 0, \"y\": 1}}",
+    "attack":   "{\"kind\": \"union\", \"shapes\": [{\"kind\": \"point\", \"delta\": {\"x\": 1, \"y\": 1}}, {\"kind\": \"point\", \"delta\": {\"x\": -1, \"y\": 1}}]}",
+    "abilities": ["Immobile"]
+}

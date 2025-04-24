@@ -1,0 +1,7 @@
+{
+    "name": "Queen",
+    "emoji": "♕",
+    "movement": "{\"kind\": \"ray\", \"dirs\": [\"N\", \"NE\", \"E\", \"SE\", \"S\", \"SW\", \"W\", \"NW\"], \"min\": 1, \"max\": 8}",
+    "attack":   "{\"kind\": \"ray\", \"dirs\": [\"N\", \"NE\", \"E\", \"SE\", \"S\", \"SW\", \"W\", \"NW\"], \"min\": 1, \"max\": 8}",
+    "abilities": []
+}

@@ -1,0 +1,7 @@
+{
+    "name": "Knight",
+    "emoji": "♘",
+    "movement": "{\"kind\": \"reflect\", \"axis\": \"both\", \"shapes\": [{\"kind\": \"point\", \"delta\": {\"x\": 1, \"y\": 2}}, {\"kind\": \"point\", \"delta\": {\"x\": 2, \"y\": 1}}]}",
+    "attack":   "{\"kind\": \"reflect\", \"axis\": \"both\", \"shapes\": [{\"kind\": \"point\", \"delta\": {\"x\": 1, \"y\": 2}}, {\"kind\": \"point\", \"delta\": {\"x\": 2, \"y\": 1}}]}",
+    "abilities": ["Jumping"]
+}

@@ -1,0 +1,7 @@
+{
+    "name": "King",
+    "emoji": "♔",
+    "movement": "{\"kind\": \"square\", \"size\": 1}",
+    "attack":   "{\"kind\": \"square\", \"size\": 1}",
+    "abilities": ["King"]
+}

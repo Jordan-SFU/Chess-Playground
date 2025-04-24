@@ -29,6 +29,22 @@ class BoardCell {
     public setPiece(piece: Piece | null): void {
         this.piece = piece
     }
+
+    /**
+     * Retrieves the piece currently in the cell.
+     * @returns The piece in the cell, or null if empty.
+     */
+    public getPiece(): Piece | null {
+        return this.piece
+    }
+
+    /**
+     * Checks if the cell is occupied by a piece.
+     * @returns True if the cell is occupied by a piece, false otherwise.
+     */
+    public isOccupied(): boolean {
+        return this.piece !== null
+    }
 }
 
 export { BoardCell }

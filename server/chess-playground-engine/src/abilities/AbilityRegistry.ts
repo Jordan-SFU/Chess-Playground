@@ -1,18 +1,18 @@
-import { Ability } from "./IAbility";
+import { IAbility } from "./IAbility";
 
 /**
  * Type alias for an Ability constructor.
  */
-type AbilityConstructor = new (params: Object) => Ability;
+export type AbilityConstructor = new (params: Record<string,any>) => IAbility;
 
 /**
  * Registry for managing and creating Ability instances.
  */
-class AbilityRegistry {
+export class AbilityRegistry {
     /**
      * Internal map storing registered ability constructors, keyed by name.
      */
-    private registry: Map<string, AbilityConstructor> = new Map();
+    private registry = new Map<string, AbilityConstructor>();
 
     /**
      * Registers a new ability constructor with the registry.
@@ -30,7 +30,7 @@ class AbilityRegistry {
      * @returns A new Ability instance.
      * @throws Error if the ability name is not registered.
      */
-    public create(name: string, params: Object): Ability {
+    public create(name: string, params: Record<string,any> = {}): IAbility {
         const ctor = this.registry.get(name);
         if (!ctor) {
             throw new Error(`Ability with name "${name}" not registered.`);
@@ -38,5 +38,3 @@ class AbilityRegistry {
         return new ctor(params);
     }
 }
-
-export { AbilityRegistry, AbilityConstructor };

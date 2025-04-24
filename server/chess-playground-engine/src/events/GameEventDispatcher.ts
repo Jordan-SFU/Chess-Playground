@@ -1,6 +1,6 @@
 import { GameEventType } from "./GameEventType";
 import { EventContext } from "./EventContext";
-import { Ability } from "../abilities/IAbility";
+import { IAbility } from "../abilities/IAbility";
 
 /**
  * Dispatches game events to subscribed listeners (Abilities).
@@ -10,7 +10,7 @@ class GameEventDispatcher{
      * Map storing listeners subscribed to specific event types, along with their priority.
      * Listeners are stored as tuples of [priority, Ability].
      */
-    private listeners: Map<GameEventType, { priority: number, listener: Ability }[]> = new Map();
+    private listeners: Map<GameEventType, { priority: number, listener: IAbility }[]> = new Map();
 
     /**
      * Subscribes a listener (Ability) to a specific game event type with a given priority.
@@ -18,7 +18,7 @@ class GameEventDispatcher{
      * @param listener The Ability instance that will listen to the event.
      * @param priority The priority of the listener (lower numbers execute first).
      */
-    public subscribe(eventType: GameEventType, listener: Ability, priority: number): void {
+    public subscribe(eventType: GameEventType, listener: IAbility, priority: number): void {
         if (!this.listeners.has(eventType)) {
             this.listeners.set(eventType, []);
         }
@@ -33,7 +33,7 @@ class GameEventDispatcher{
      * @param eventType The type of event to unsubscribe from.
      * @param listener The Ability instance to unsubscribe.
      */
-    public unsubscribe(eventType: GameEventType, listener: Ability): void {
+    public unsubscribe(eventType: GameEventType, listener: IAbility): void {
         if (this.listeners.has(eventType)) {
             const eventListeners = this.listeners.get(eventType)!;
             this.listeners.set(eventType, eventListeners.filter(l => l.listener !== listener));

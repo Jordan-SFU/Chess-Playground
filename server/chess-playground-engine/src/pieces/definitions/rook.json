@@ -1,0 +1,7 @@
+{
+    "name": "Rook",
+    "emoji": "♖",
+    "movement": "{\"kind\": \"ray\", \"dirs\": [\"N\", \"E\", \"S\", \"W\"], \"min\": 1, \"max\": 8}",
+    "attack":   "{\"kind\": \"ray\", \"dirs\": [\"N\", \"E\", \"S\", \"W\"], \"min\": 1, \"max\": 8}",
+    "abilities": []
+}

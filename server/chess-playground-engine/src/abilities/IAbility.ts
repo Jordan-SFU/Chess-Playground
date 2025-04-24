@@ -4,7 +4,7 @@ import { EventContext } from "../events/EventContext";
 /**
  * Interface defining the structure of an ability that can be attached to pieces or status effects.
  */
-interface Ability {
+interface IAbility {
     /**
      * List of game event types that trigger this ability.
      */
@@ -20,4 +20,4 @@ interface Ability {
     onTrigger(ctx: EventContext): void;
 }
 
-export { Ability };
+export { IAbility };

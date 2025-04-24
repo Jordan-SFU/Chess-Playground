@@ -1,0 +1,7 @@
+{
+    "name": "Bishop",
+    "emoji": "♗",
+    "movement": "{\"kind\": \"ray\", \"dirs\": [\"NE\", \"SE\", \"SW\", \"NW\"], \"min\": 1, \"max\": 8}",
+    "attack":   "{\"kind\": \"ray\", \"dirs\": [\"NE\", \"SE\", \"SW\", \"NW\"], \"min\": 1, \"max\": 8}",
+    "abilities": []
+}
